@@ -1,0 +1,14 @@
+{% extends "layout.twig" %}
+
+{% block content %}
+    If the links "won't work", you should prepend 'index.php' to your links. (e.g. localhost/index.php/controllerpath)
+    <br/>
+    Ideally, you should be serving this with the built in PHP Web Server <code>(php -S localhost:8000)</code>
+    <br/>
+    If the above doesn't work, try <code>php -S localhost:8000 index.php</code>
+
+    <h3>Available Routes</h3>
+    {% for route in routes %}
+        <li><a href="{{ route.getPath }}">{{ route.getPath }}</a> ({{ route.getMethods[0] }})</li>
+    {% endfor %}
+{% endblock %}
