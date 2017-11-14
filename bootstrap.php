@@ -7,12 +7,18 @@ use Silex\Provider\SessionServiceProvider;
 use Silex\Provider\VarDumperServiceProvider;
 use JG\Silex\Provider\CapsuleServiceProvider;
 use Silex\Provider\ServiceControllerServiceProvider;
+use Symfony\Component\Dotenv\Exception\PathException;
 
 $app = new Application();
 $app['debug'] = true;
 
 $dotenv = new Dotenv();
-$dotenv->load(__DIR__ . '/.env');
+try {
+    $dotenv->load(__DIR__ . '/.env');
+} catch (PathException $exception) {
+    copy(__DIR__ . '/.env.example', __DIR__ . '/.env');
+    echo "Generated a new .env file. Please reload.";
+}
 
 $app->register(new VarDumperServiceProvider());
 $app->register(new SessionServiceProvider());
