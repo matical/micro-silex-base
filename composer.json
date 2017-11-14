@@ -4,6 +4,7 @@
         "symfony/dotenv": "^3.3",
         "symfony/var-dumper": "^3.3",
         "jguyomard/silex-capsule-eloquent": "~2.0",
-        "symfony/twig-bridge": "^3.3"
+        "symfony/twig-bridge": "^3.3",
+        "cakephp/chronos": "^1.1"
     }
 }
