@@ -17,7 +17,7 @@ try {
     $dotenv->load(__DIR__ . '/.env');
 } catch (PathException $exception) {
     copy(__DIR__ . '/.env.example', __DIR__ . '/.env');
-    echo "Generated a new .env file. Please reload.";
+    echo 'Generated a new .env file. Please reload.';
 }
 
 $app->register(new VarDumperServiceProvider());
